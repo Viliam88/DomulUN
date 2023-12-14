@@ -1,0 +1,23 @@
+{
+    "Welcome to My Shopping List App": "Vítejte v aplikaci Seznam nákupů",
+    "Go To Shopping Lists": "Přejít na seznam nákupů",
+    "Add New List": "Přidat nový seznam",
+    "Delete": "Smazat",
+    "Archive": "Archivovat",
+    "Confirm Delete?": "Potvrdit smazání?",
+    "Yes": "Ano",
+    "No": "Ne",
+    "Go to Homepage": "Přejít na úvodní stránku",
+    "Add Item": "Přidat položku",
+    "Show Done Items": "Zobrazit dokončené položky",
+    "Hide Done Items": "Skrýt dokončené položky",
+    "Back to Shopping Lists": "Zpět na seznam nákupů",
+    "Add Items to List": "Pridat polozky na seznam",
+    "Switch to Light Mode": "Prepnout svetly rezim",
+    "Switch to Dark Mode": "Prepnout tmavy rezim",
+    "Light Mode": "Svetly Rezim",
+    "Dark Mode": "Tmavy Rezim",
+    "Archived Lists": "Archivovane Seznamy",
+    "Active Lists": "Aktivne Seznamy",
+    "Shopping Lists": "Nakupne Seznamy"
+  }
