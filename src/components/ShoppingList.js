@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import AddListModal from "./AddListModal";
-import { useTranslation } from "react-i18next"; // Import useTranslation hook
+import { useTranslation } from "react-i18next";
 
 const buttonStyle = {
   padding: "8px 12px",
@@ -49,8 +49,13 @@ const containerStyle = {
   fontFamily: "Arial, sans-serif",
 };
 
+const listContainerStyle = {
+  maxHeight: "300px", // Adjust as needed
+  overflowY: "auto",
+};
+
 const ShoppingList = () => {
-  const { t } = useTranslation(); // Use useTranslation hook
+  const { t } = useTranslation();
   const [lists, setLists] = useState([]);
   const [isAddListModalOpen, setIsAddListModalOpen] = useState(false);
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] =
@@ -106,48 +111,49 @@ const ShoppingList = () => {
         {t("Add New List")}
       </button>
       <h2>{t("Active Lists")}</h2>
-      <ul style={listStyle}>
-        {activeLists.map((list, index) => (
-          <li key={index}>
-            <Link to={`/shopping-list/${index}`} style={linkStyle}>
-              {list.name}
-            </Link>
-            {!list.archived && (
-              <React.Fragment>
-                <button
-                  onClick={() => openDeleteConfirmation(index)}
-                  style={deleteButtonStyle}
-                >
-                  {t("Delete")}
-                </button>
-                <button
-                  onClick={() => archiveList(index)}
-                  style={archiveButtonStyle}
-                >
-                  {t("Archive")}
-                </button>
-              </React.Fragment>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div style={listContainerStyle}>
+        <ul style={listStyle}>
+          {activeLists.map((list, index) => (
+            <li key={index}>
+              <Link to={`/shopping-list/${index}`} style={linkStyle}>
+                {list.name}
+              </Link>
+              {!list.archived && (
+                <React.Fragment>
+                  <button
+                    onClick={() => openDeleteConfirmation(index)}
+                    style={deleteButtonStyle}
+                  >
+                    {t("Delete")}
+                  </button>
+                  <button
+                    onClick={() => archiveList(index)}
+                    style={archiveButtonStyle}
+                  >
+                    {t("Archive")}
+                  </button>
+                </React.Fragment>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
       <h2>{t("Archived Lists")}</h2>
-      <ul style={listStyle}>
-        {archivedLists.map((list, index) => (
-          <li key={index}>
-            <Link to={`/shopping-list/${index}`} style={linkStyle}>
-              {list.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/" style={linkStyle}>
-        {t("Go to Homepage")}
-      </Link>
+      <div style={listContainerStyle}>
+        <ul style={listStyle}>
+          {archivedLists.map((list, index) => (
+            <li key={index}>
+              <Link to={`/shopping-list/${index}`} style={linkStyle}>
+                {list.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <Modal
         isOpen={isDeleteConfirmationOpen}
         onRequestClose={closeDeleteConfirmation}
-        contentLabel={t("Confirm Delete Modal")}
+        contentLabel="Confirm Delete Modal"
       >
         <div style={containerStyle}>
           <h2>{t("Confirm Delete?")}</h2>
